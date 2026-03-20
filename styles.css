@@ -752,6 +752,299 @@ body {
 }
 
 /* ========================================
+   EDUCATION SECTION
+   ======================================== */
+
+.education {
+    padding: 100px 20px;
+    background-color: var(--background-color);
+}
+
+.education-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px 0;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    transform: translateX(-50%);
+}
+
+.education-item {
+    margin-bottom: 50px;
+    position: relative;
+    animation: fadeInUp 0.6s ease;
+}
+
+.education-item:nth-child(odd) {
+    margin-left: 0;
+    margin-right: 50%;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.education-item:nth-child(even) {
+    margin-left: 50%;
+    margin-right: 0;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.education-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border: 4px solid var(--background-color);
+    border-radius: 50%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 4px var(--border-color);
+}
+
+.education-item.current .education-marker {
+    background: var(--secondary-color);
+    width: 28px;
+    height: 28px;
+    top: 16px;
+    box-shadow: 0 0 0 6px var(--border-color), 0 8px 20px rgba(255, 0, 0, 0.3);
+}
+
+.education-content {
+    background-color: var(--background-color);
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.education-item:hover .education-content {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.education-content h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.education-institution {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.education-major,
+.education-period {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.education-major i,
+.education-period i {
+    margin-right: 8px;
+}
+
+.education-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ========================================
+   SKILLS SECTION
+   ======================================== */
+
+.skills {
+    padding: 100px 20px;
+    background-color: var(--background-color);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.skill-card {
+    background-color: var(--background-color);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    text-align: center;
+    transition: var(--transition);
+    animation: fadeInUp 0.6s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.skill-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+.skill-card:hover .skill-icon {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+.skill-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.skill-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.skill-level {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.level-bar {
+    width: 100px;
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.level-bar.advanced::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    width: 100%;
+    animation: fillBar 1s ease forwards;
+}
+
+.level-bar.intermediate::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    width: 75%;
+    animation: fillBar 1s ease forwards;
+}
+
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--width, 100%);
+    }
+}
+
+.level-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* ========================================
+   CONTACT SECTION UPDATES
+   ======================================== */
+
+.contact-info-wrapper {
+    animation: fadeInUp 0.6s ease;
+}
+
+.contact-info-wrapper h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.info-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+    animation: fadeInUp 0.6s ease;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 5px;
+}
+
+.info-item h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.info-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.info-item a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.info-item p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.connect-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid var(--border-color);
+}
+
+.connect-section h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.connect-section p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* ========================================
    RESPONSIVE DESIGN
    ======================================== */
 
@@ -816,7 +1109,8 @@ body {
     /* Certificates & Projects */
     .certificates-grid,
     .projects-grid,
-    .work-gallery {
+    .work-gallery,
+    .skills-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
@@ -825,6 +1119,24 @@ body {
     .contact-wrapper {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    /* Education Timeline */
+    .education-timeline::before {
+        left: 20px;
+    }
+
+    .education-item:nth-child(odd),
+    .education-item:nth-child(even) {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 70px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .education-marker {
+        left: 20px;
     }
 
     /* Social Links */
